@@ -56,11 +56,17 @@
         background: #0000004f;
     }
 
+    @media(max-width: 700px) {
+        .main-startup-div {
+            padding-bottom: 60px !important;
+        }
+    }
+
 </style>
 @endpush
 
 @section('content')
-<div class="d-flex justify-content-center w-100">
+<div class="d-flex justify-content-center main-startup-div" style="width: 90%;margin: auto;margin-top: 90px;">
     @include('components.profile-create')
 </div>
 

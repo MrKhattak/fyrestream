@@ -65,4 +65,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Profile::class, 'user_id');
     }
+
+    public function momments()
+    {
+        return $this->hasMany(Momment::class, 'user_id');
+    }
 }

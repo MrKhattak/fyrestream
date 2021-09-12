@@ -6,6 +6,7 @@
 .env
 .env.backup
 .phpunit.result.cache
+fyrestream important infos.txt
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml

@@ -20,6 +20,19 @@
         overflow-y: clip;
     }
 
+    .card-footer button {
+        width: auto;
+    }
+
+    #gerenal-info input {
+        border-radius: 0.25rem;
+        border-color: #ced4da;
+    }
+
+    .modal-actions button {
+        flex: 1;
+    }
+
 </style>
 
 <link rel="stylesheet" href="{{asset("js/cropper/cropper.min.css")}}">
@@ -152,6 +165,7 @@
         .profile-change-card {
             width: 98%;
         }
+
     }
 
     @media(max-width: 500px) {
@@ -536,7 +550,7 @@
             <div class="d-flex justify-content-center mt-3">
                 <strong style="font-size: 1.5rem;font-weight:600;color:rgb(237, 126, 42);">Add Friends</strong>
             </div>
-            <div class="friends d-flex flex-wrap mt-4" style="gap: 20px;">
+            <div class="friends d-flex flex-wrap mt-4" style="gap: 20px;justify-content: center;">
                 <div class="firend card">
                     <div class="card-body m-2 d-flex flex-column align-items-center">
                         <img width="100" height="100" style="border-radius: 50%;" src="{{asset('storage/images/static/blank_profile_male.jpg')}}" alt="User Image">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Momment;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +12,7 @@ use Illuminate\Validation\Rule;
 
 class HomeController extends Controller
 {
+    private User $user;
     /**
      * Create a new controller instance.
      *
@@ -28,7 +31,16 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->profile->startup_skip) {
-            return view('home');
+            $this->user = Auth::user();
+            $userMomments = $this->user->momments()->latest()->get();
+            $firendsMomments = [];
+            /* $allFriends = Auth::user()->firends;
+            foreach ($allMomments as $frndMomment) {
+                $momment = ["user" => $frndMomment->user, "momments" => $userMomments];
+                array_push($firendsMomments, $momment);
+            } */
+
+            return view('home', ["userMomments" => $userMomments]);
         }
         return redirect("/startup");
     }

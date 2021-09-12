@@ -34,6 +34,14 @@ class UserController extends Controller
         Profile::create([
             'user_id' => $user->id,
         ]);
+        if ($user->gender === "male") {
+            $user->image = "storage/images/static/blank_profile_male.jpg";
+        } else if ($user->gender === "female") {
+            $user->image = "storage/images/static/blank_profile_female.jpg";
+        } else {
+            $user->image = "storage/images/static/default_profile.jpg";
+        }
+        $user->save();
         event(new Registered($user));
         return new JsonResponse(["success" => true, "message" => "New user created successfully", "user" => $user, "token" => $token->plainTextToken], 200);
     }
@@ -168,6 +176,7 @@ class UserController extends Controller
             }
             $user->save();
         }
+
 
         return new JsonResponse(["success" => true, "message" => "User profile updated successfuly"], 200);
     }
